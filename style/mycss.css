@@ -1,0 +1,419 @@
+:root {
+    --main-color: #c2a484;
+    --main-color-alt: #f7730f;
+    --bg-color: #05070f;
+    --main-transition: 0.3s;
+
+}
+
+
+body {
+    font-family: 'cairo';
+    /* background-color: var(--bg-color); */
+    /* background-image: url('/assests/images/image2.jpg'); */
+    background-size: cover;
+}
+
+.mycontainer {
+    padding-left: 15px;
+    padding-right: 15px;
+
+}
+
+
+
+@keyframes left-move {
+    50% {
+        left: 0;
+        width: 12px;
+        height: 12px;
+    }
+
+    100% {
+        left: 0;
+        border-radius: 0;
+        width: 50%;
+        height: 100%;
+    }
+}
+
+@keyframes right-move {
+    50% {
+        right: 0;
+        width: 12px;
+        height: 12px;
+    }
+
+    100% {
+        right: 0;
+        border-radius: 0;
+        width: 50%;
+        height: 100%;
+    }
+}
+
+.navbar-toggler {
+    background-color: white !important;
+}
+
+.nav-item {
+    position: relative;
+
+    padding: 5px 30px;
+    overflow: hidden;
+    font-size: 18px;
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.nav-item>.nav-link {
+    color: white !important;
+}
+
+.nav-item::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: var(--main-color);
+    top: 0;
+    left: -100%;
+    transition: var(--main-transition);
+}
+
+.nav-item:hover {
+    background-color: #0000004a;
+    color: var(--main-color);
+}
+
+.nav-item:hover a {
+    color: var(--main-color) !important;
+}
+
+.nav-item:hover::before {
+    left: 0;
+}
+
+.mainHead {
+
+    background-size: cover;
+    background-position: center;
+    padding: 0px 0px !important;
+    min-height: 80vh;
+}
+
+.main-header {
+    color: white;
+    padding: 25px 0px;
+    /* font-size: calc(2.5em + 1vw); */
+    position: relative;
+}
+
+.myVideoContainer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.myVideoContainer>video {
+    position: relative;
+    z-index: -2;
+
+    min-height: 100vh;
+}
+
+.myVideoContainer::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: -2;
+}
+
+.articles {
+    padding-top: var(--main-padding-top);
+    padding-bottom: var(--main-padding-bottom);
+    position: relative;
+}
+
+.main-title {
+    text-transform: uppercase;
+    margin: 0 auto 50px;
+    border: 2px solid var(--main-color);
+    color: rgb(116, 116, 116);
+    padding: 10px 20px;
+    font-size: 30px;
+    width: fit-content;
+    position: relative;
+    z-index: 1;
+    transition: var(--main-transition);
+}
+
+.main-title::before,
+.main-title::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background-color: var(--main-color);
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.main-title:hover {
+    border: 2px solid rgb(255, 255, 255);
+    color: white;
+    transition-delay: 0.5s;
+}
+
+.main-title::before {
+    left: -30px;
+}
+
+.main-title::after {
+    right: -30px;
+}
+
+.main-title:hover::before {
+    z-index: -1;
+    animation: left-move 0.5s linear forwards;
+}
+
+.main-title:hover::after {
+    z-index: -1;
+    animation: right-move 0.5s linear forwards;
+}
+
+.whous {
+    background-color: white;
+    padding: 40px 20px;
+}
+
+.whous>h4 {
+    padding: 15px;
+    color: black;
+}
+
+
+
+
+/* Start Features */
+.features {
+    padding-top: var(--main-padding-top);
+    padding-bottom: var(--main-padding-bottom);
+    position: relative;
+    background-color: white;
+    align-content: center;
+}
+
+.features .mycontainer {
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(350px, 1fr) );
+    gap: 40px;
+    justify-items: center;
+}
+
+.features .box {
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.features .box .img-holder {
+    position: relative;
+    overflow: hidden;
+}
+
+.features .box .img-holder::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -1px;
+    width: 100%;
+    height: 100%;
+}
+
+.features .box .img-holder::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-style: solid;
+    border-width: 0px 0px 170px 750px;
+    border-color: transparent transparent white transparent;
+    transition: var(--main-transition);
+}
+
+.features .box .img-holder img {
+    max-width: 100%;
+}
+
+.features .box:hover .img-holder::after {
+    border-width: 170px 500px 170px 0;
+}
+
+.features .box h2 {
+    position: relative;
+    font-size: 40px;
+    margin: auto;
+    width: fit-content;
+}
+
+.features .box h2::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 15px;
+    height: 5px;
+    width: calc(100% - 30px);
+}
+
+.features .box p {
+    line-height: 2;
+    font-size: 20px;
+    margin: 30px 0;
+    padding: 25px;
+    color: #777;
+}
+
+.features .box a {
+    display: block;
+    border: 3px solid transparent;
+    width: fit-content;
+    margin: 0 auto 30px;
+    font-weight: bold;
+    font-size: 22px;
+    padding: 10px 30px;
+    border-radius: 6px;
+    transition: var(--main-transition);
+}
+
+.features p {
+    text-align: center;
+}
+
+.features .quality .img-holder::before {
+    background-color: rgb(244 64 54 / 60%);
+}
+
+.features .quality h2::after {
+    background-color: #f44036;
+}
+
+.features .quality a {
+    color: #f44036;
+    border-color: #f44036;
+    background: linear-gradient(to right, #f44036 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+}
+
+.features .time .img-holder::before {
+    background-color: rgb(0 150 136 / 60%);
+}
+
+.features .time h2::after {
+    background-color: #009688;
+}
+
+.features .time a {
+    color: #009688;
+    border-color: #009688;
+    background: linear-gradient(to right, #009688 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+}
+
+.features .passion .img-holder::before {
+    background-color: rgb(3 169 244 / 60%);
+}
+
+.features .passion h2::after {
+    background-color: #03a9f4;
+}
+
+.features .passion a {
+    color: #03a9f4;
+    border-color: #03a9f4;
+    background: linear-gradient(to right, #03a9f4 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+}
+
+.features .box:hover a {
+    background-position: left bottom;
+    color: white;
+}
+
+/* End Features */
+/* START CONTACT */
+.contact{
+    padding:50px 0px;
+}
+.contactPhoto{
+text-align: center;
+}
+.contactPhoto img{
+    max-width: 100%;
+}
+.contactInfo{
+text-align: center;
+}
+.contactInfo h3{
+    direction: ltr;
+}
+.contactInfo i{
+    text-align: right;
+    padding: 0px 10px;
+}
+
+.contactInfo h3 a{
+text-decoration: none;
+}
+
+.contactInfo h3 a:visited,a:link{
+color :#009688;
+}
+.contactInfo h3 a:hover{
+    color :#009625;
+    }
+
+.profilePic{
+text-align: center;
+}
+.profilePic > img{
+ max-width: 50%;
+}
+
+
+.manBG{
+position: relative;
+}
+
+@keyframes buzz {
+    25% {
+        transform: translate(35px, 0px);
+     }
+     
+     75% {
+        transform: translate(-35px, 0px);
+     }
+    100% {
+        transform: translate(0px, 0px);
+        rotate: 0deg;
+     }
+
+}
+.man{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    animation: buzz 5s linear infinite;
+}
